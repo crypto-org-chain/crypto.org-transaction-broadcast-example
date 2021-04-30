@@ -1,0 +1,68 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-clean-code",
+    "tslint-microsoft-contrib/latest"
+  ],
+  "linterOptions": {
+    "exclude": [
+    ]
+  },
+  "jsRules": {},
+  "rules": {
+    "indent": [
+      true,
+      "tabs",
+      2
+    ],
+    "no-constant-condition": true,
+    "max-line-length": false,
+    "no-console": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "member-ordering": false,
+    "variable-name": [
+      true,
+      "check-format",
+      "allow-leading-underscore",
+      "allow-pascal-case"
+    ],
+    "max-classes-per-file": false,
+    "no-string-literal": false,
+    "no-unused-expression": false,
+    "no-bitwise": false,
+    "jsdoc-format": false,
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "id-length": true,
+    "try-catch-first": true,
+    "max-func-args": true,
+    "min-class-cohesion": true,
+    "newspaper-order": true,
+    "no-flag-args": true,
+    "no-for-each-push": true,
+    "no-feature-envy": true,
+    "no-map-without-usage": true,
+    "no-complex-conditionals": true,
+    "prefer-dry-conditionals": true,
+    "no-commented-out-code": true,
+    "no-floating-promises": true,
+    "max-func-body-length": [true, 50, { "ignore-parameters-to-function-regex": "^describe|context|skip$", "ignore-comments": true }],
+    "no-relative-imports": false,
+    "prefer-type-cast": false,
+    "function-name": false,
+    "import-name": false,
+    "export-name": false,
+    "mocha-no-side-effect-code": false,
+    "no-for-in": false,
+    "chai-vague-errors": false,
+    "informative-docs": false,
+    "no-function-expression": false
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
+}

@@ -1,0 +1,65 @@
+version: 2
+jobs:
+  audit:
+    docker:
+      - image: circleci/node:13.11.0
+    working_directory: ~/app
+    steps:
+      - checkout:
+          path: ~/app
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn audit
+
+  tslint:
+    docker:
+      - image: circleci/node:13.11.0
+    working_directory: ~/app
+    steps:
+      - checkout:
+          path: ~/app
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run: yarn install
+      - run: yarn tslint
+
+  build:
+    docker:
+      - image: circleci/node:13.11.0
+    working_directory: ~/app
+    steps:
+      - checkout:
+          path: ~/app
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run: yarn install --production
+      - run: yarn build
+
+  unit-test:
+    docker:
+      - image: circleci/node:13.11.0
+    working_directory: ~/app
+    steps:
+      - checkout:
+          path: ~/app
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run: yarn install
+      - run: yarn test
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - audit
+      - tslint
+      - build
+      - unit-test

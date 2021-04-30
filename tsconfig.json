@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "pretty": true,
+    "target": "es2017",
+    "lib": [
+      "es2017"
+    ],
+    "sourceMap": true,
+    "outDir": "./dist",
+    "allowJs": true,
+    "types": [
+      "bluebird-global",
+      "node"
+    ],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.*s",
+    "src/**/*.itest.*s",
+    "test"
+  ]
+}
